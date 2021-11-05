@@ -1,0 +1,91 @@
+.container {
+  width: 100%;
+  overflow: auto;
+}
+.gant {
+  white-space: nowrap;
+  display: inline-block;
+  overflow: auto;
+  border: 1px solid #efefef;
+  position: relative;
+  box-sizing: content-box;
+  min-height: 140px;
+  .mark-item {
+    display: inline-block;
+    width: 100px;
+    height: 100%;
+    border-right: 1px solid #efefef;
+    text-align: center;
+    p {
+      height: 40px;
+      line-height: 40px;
+      border-bottom: 1px solid #efefef;
+    }
+  }
+  .mark-item:last-child {
+    border-right: none;
+  }
+
+  .task {
+    position: absolute;
+    top: 40px;
+    left: 100px;
+    right: 0;
+    .sub-task {
+      position: relative;
+      box-sizing: content-box;
+      border-bottom: 1px solid #efefef;
+      width: 100%;
+      overflow: hidden;
+      .sub-task-item {
+        height: 40px;
+        background-color: #b5deff;
+        position: absolute;
+        border-radius: 8px;
+        font-size: 12px;
+        padding: 4px;
+        border: 2px solid #fff;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        cursor: pointer;
+      }
+    }
+    .sub-task:last-child {
+      border-bottom: none;
+    }
+  }
+  .left-side {
+    position: absolute;
+    left: 0;
+    top: 40px;
+    width: 100px;
+    .side-item {
+      background-color: #d1e8e4;
+      width: 100px;
+      box-sizing: content-box;
+      border-bottom: 1px solid #efefef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .side-item:last-child {
+      border-bottom: none;
+    }
+  }
+  .no-data {
+    position: absolute;
+    top: 41px;
+    left: 0;
+    right: 0;
+    line-height: 100px;
+    text-align: center;
+    background-color: #fff;
+  }
+}
+div,
+p {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
