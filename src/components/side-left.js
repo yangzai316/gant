@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-const SideLeft = ({ data }) => {
+const SideLeft = ({ data = [] }) => {
   return (
     <div className="left-side">
       {data.map((item) => {
@@ -7,7 +7,7 @@ const SideLeft = ({ data }) => {
           <div
             className="side-item"
             key={item.id}
-            style={{ height: `${item.subCount * 40}px` }}
+            style={{ height: `${item.subCount * 70}px` }}
           >
             {item.title}
           </div>

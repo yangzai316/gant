@@ -8,19 +8,17 @@ import Empty from "./components/empty";
 import Header from "./components/header";
 import Tip from "./components/Tip";
 
-const Gant = ({ data, year, month, emptyText }) => {
+const Gant = ({ data, year, month, emptyText, tipText }) => {
   // 处理当前
   const day = useDateInfo(year, month);
   const formatList = useFormatData(data, day);
   return (
     <div className="gant">
-      <Tip></Tip>
+      <Tip>{tipText}</Tip>
       <div
         className="main"
         style={{
-          height: `${
-            formatList.subTotalCount * 40 + formatList?.list?.length - 1 + 40
-          }px`,
+          height: `${formatList.subTotalCount * 70 + 40}px`,
           width: `${(day.total + 1) * 100}px`,
         }}
       >

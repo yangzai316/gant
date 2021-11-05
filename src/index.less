@@ -13,8 +13,6 @@
     z-index: 6;
   }
   .main {
-    white-space: nowrap;
-    display: inline-block;
     position: relative;
     box-sizing: content-box;
     min-height: 140px;
@@ -56,46 +54,65 @@
         }
       }
     }
-    .task {
+    .task-main {
       position: absolute;
       top: 40px;
       left: 100px;
       right: 0;
       z-index: 2;
-      .sub-task {
+      .task {
         position: relative;
-        box-sizing: content-box;
         border-bottom: 1px dashed #efefef;
         width: 100%;
         overflow: hidden;
-        .sub-task-item {
-          height: 40px;
+        .task-item {
+          height: 70px;
           background-color: #b5deff;
           position: absolute;
           border-radius: 8px;
           font-size: 12px;
-          padding: 4px;
-          border: 2px solid #fff;
+          padding: 4px 0;
+          border-top: 4px solid #fff;
+          border-bottom: 4px solid #fff;
           white-space: nowrap;
           text-overflow: ellipsis;
           overflow: hidden;
           cursor: pointer;
           display: flex;
-          .content {
+          .task-content {
             flex-grow: 1;
+            position: relative;
+            .sub-task-title {
+              margin-bottom: 4px;
+            }
+            .sub-task-item {
+              position: absolute;
+              width: 200px;
+              height: 10px;
+              border-radius: 5px;
+              background-color: red;
+            }
           }
           .icon-point-left {
             font-size: 20px;
             margin-right: 6px;
             flex-grow: 0;
             color: #555555;
+            align-self: center;
           }
           .icon-point-right {
             font-size: 20px;
             margin-left: 6px;
             flex-grow: 0;
             color: #555555;
+            align-self: center;
           }
+        }
+        .radius-left {
+          border-radius: 0 8px 8px 0;
+        }
+        .radius-right {
+          border-radius: 8px 0 0 8px;
         }
         &:last-child {
           border-bottom: none;
@@ -118,12 +135,11 @@
       left: 0;
       right: 0;
       z-index: 1;
+      display: flex;
       .bg-mark-item {
-        display: inline-block;
         width: 100px;
         height: 100%;
         border-right: 1px dashed #efefef;
-        text-align: center;
         &:last-child {
           border-right: none;
         }

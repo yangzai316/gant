@@ -1,28 +1,38 @@
 import React from "react";
-export const TaskItem = ({ data, day }) => {
+import TaskItemSub from "./task-item-sub";
+
+export const TaskItem = ({ data }) => {
   return (
     <div
-      className="sub-task"
+      className="task"
       style={{
-        height: `${data.subCount * 40}px`,
+        height: `${data.subCount * 70}px`,
       }}
     >
-      {data.tasks.map((item, index) => {
+      {(data?.tasks || []).map((item, index) => {
         return (
           <div
             key={item.id}
-            className="sub-task-item"
+            className={`task-item ${
+              item.relativeCurrentMonth === "prv" ? "radius-left" : ""
+            } ${item.relativeCurrentMonth === "next" ? "radius-right" : ""}`}
             style={{
-              top: `${index * 40}px`,
+              top: `${index * 70}px`,
               left: `${item.left * 100}px`,
-              width: `${item.width * 100 - 1}px`,
+              width: `${item.width * 100}px`,
             }}
             title={item.title}
           >
             {item.relativeCurrentMonth === "prv" && (
               <span className="icon-point-left">&#10094;</span>
             )}
-            <span className="content">{item.title}</span>
+            <div className="task-content">
+              <p className="sub-task-title">{item.title}</p>
+              <TaskItemSub
+                list={item?.subTasks || []}
+                taskStartTime={item.startTime}
+              ></TaskItemSub>
+            </div>
             {item.relativeCurrentMonth === "next" && (
               <span className="icon-point-right">&#10095;</span>
             )}

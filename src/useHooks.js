@@ -26,7 +26,7 @@ export const useDateInfo = (year, month) => {
  * @param {*} data 任务数据
  * @param {*} day 该月的时间信息
  */
-export const useFormatData = (data, day) => {
+export const useFormatData = (data = [], day) => {
   return useMemo(() => {
     let subTotalCount = 0;
     let list = data.map((item) => {
@@ -53,6 +53,7 @@ export const useFormatData = (data, day) => {
         subCount,
       };
     });
+    console.log(list);
     return {
       subTotalCount, // 一共多少任务
       list, // 格式化后的数据
