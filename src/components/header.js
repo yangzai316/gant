@@ -1,21 +1,22 @@
 import React from "react";
 
-const BgMark = ({ day }) => {
+const Header = ({ day }) => {
   return (
-    <div className="bg-mark">
+    <div className="header">
       {new Array(day.total + 1).fill().map((item, index) => {
         return (
-          <div
-            className="bg-mark-item"
+          <p
             key={index}
             style={{
               backgroundColor: day.today === index ? "#FDFCE5" : "",
             }}
-          ></div>
+          >
+            {day.today === index ? "今天" : index}
+          </p>
         );
       })}
     </div>
   );
 };
 
-export default BgMark;
+export default Header;

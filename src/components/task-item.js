@@ -1,5 +1,5 @@
 import React from "react";
-export const TaskItem = ({ data }) => {
+export const TaskItem = ({ data, day }) => {
   return (
     <div
       className="sub-task"
@@ -13,14 +13,24 @@ export const TaskItem = ({ data }) => {
             key={item.id}
             className="sub-task-item"
             style={{
-              left: `${((item.startTime - 1635696000000) / 86400000) * 100}px`,
+              left: `${
+                item.sliceStartTime
+                  ? 0
+                  : ((item.startTime - day.currentMonthFirstDay) / 86400000) *
+                    100
+              }px`,
               top: `${index * 40}px`,
               width: `${
-                ((item.endTime - item.startTime) / 86400000) * 100 - 1
+                item.sliceStartTime
+                  ? ((item.endTime - item.sliceStartTime) / 86400000) * 100 - 1
+                  : ((item.endTime - item.startTime) / 86400000) * 100 - 1
               }px`,
             }}
             title={item.title}
           >
+            {item.sliceStartTime && (
+              <span className="icon-point">&#10094;</span>
+            )}
             {item.title}
           </div>
         );

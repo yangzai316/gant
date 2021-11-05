@@ -4,8 +4,8 @@ import { data } from "./data";
 
 const App = () => {
   return (
-    <div style={{ height: "300px", width: "600px", overflow: "auto" }}>
-      <Gant data={data} emptyText="没有数据啦..."></Gant>
+    <div style={{ height: "300px", width: "600px" }}>
+      <Gant data={data} year={2021} month={11} emptyText="没有数据啦..."></Gant>
     </div>
   );
 };

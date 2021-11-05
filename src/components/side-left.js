@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-export const SideLeft = ({ data }) => {
+const SideLeft = ({ data }) => {
   return (
     <div className="left-side">
       {data.map((item) => {
@@ -16,3 +16,5 @@ export const SideLeft = ({ data }) => {
     </div>
   );
 };
+
+export default SideLeft;

@@ -14,3 +14,5 @@ npm run dev
 可在浏览器 localhost:3000 查看组件开发实时效果
 
 ```
+### light：
+- 每天头尾界限处理
