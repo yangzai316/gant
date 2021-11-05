@@ -1,128 +1,136 @@
 .gant {
   width: 100%;
   height: 100%;
-  position: relative;
+  overflow: auto;
+  border: 1px solid #efefef;
   .tip {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100px;
+    position: fixed;
+    width: 99px;
     height: 40px;
     line-height: 40px;
     text-align: center;
     background-color: #dddddd;
     z-index: 6;
   }
-  .container {
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    .main {
-      white-space: nowrap;
-      display: inline-block;
-      border: 1px solid #efefef;
-      position: relative;
+  .main {
+    white-space: nowrap;
+    display: inline-block;
+    position: relative;
+    box-sizing: content-box;
+    min-height: 140px;
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 4;
+      height: 40px;
+      border-bottom: 1px solid #efefef;
       box-sizing: content-box;
-      min-height: 140px;
-      .header {
-        position: sticky;
-        top: 0;
-        z-index: 4;
-        border-bottom: 1px solid #efefef;
-        p {
-          display: inline-block;
-          border-right: 1px solid #efefef;
-          background-color: #dddddd;
-          width: 100px;
-          height: 40px;
-          line-height: 40px;
-          text-align: center;
-          &:last-child {
-            border-right: none;
-          }
-        }
-      }
-      .left-side {
-        position: sticky;
-        left: 0;
+      p {
+        display: inline-block;
+        border-right: 1px solid #efefef;
+        background-color: #dddddd;
         width: 100px;
-        z-index: 3;
-        .side-item {
-          display: flex;
-          width: 100%;
-          align-items: center;
-          justify-content: center;
-          box-sizing: content-box;
-          background-color: #dddddd;
-          border-right: 1px solid #efefef;
-          border-bottom: 1px solid #efefef;
-          &:last-child {
-            border-bottom: none;
-          }
-        }
-      }
-      .task {
-        position: absolute;
-        top: 40px;
-        left: 100px;
-        right: 0;
-        z-index: 2;
-        .sub-task {
-          position: relative;
-          box-sizing: content-box;
-          border-bottom: 1px dashed #efefef;
-          width: 100%;
-          overflow: hidden;
-          .sub-task-item {
-            height: 40px;
-            background-color: #b5deff;
-            position: absolute;
-            border-radius: 8px;
-            font-size: 12px;
-            padding: 4px;
-            border: 2px solid #fff;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            cursor: pointer;
-          }
-          &:last-child {
-            border-bottom: none;
-          }
-        }
-      }
-      .no-data {
-        position: absolute;
-        top: 41px;
-        left: 0;
-        right: 0;
-        line-height: 100px;
+        height: 40px;
+        line-height: 40px;
         text-align: center;
-        background-color: #fff;
+        &:last-child {
+          border-right: none;
+        }
       }
-      .bg-mark {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: 1;
-        .bg-mark-item {
-          display: inline-block;
-          width: 100px;
-          height: 100%;
-          border-right: 1px dashed #efefef;
-          text-align: center;
-          &:last-child {
-            border-right: none;
+    }
+    .left-side {
+      position: sticky;
+      left: 0;
+      width: 100px;
+      z-index: 3;
+      .side-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: content-box;
+        background-color: #dddddd;
+        border-right: 1px solid #efefef;
+        border-bottom: 1px solid #efefef;
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+    .task {
+      position: absolute;
+      top: 40px;
+      left: 100px;
+      right: 0;
+      z-index: 2;
+      .sub-task {
+        position: relative;
+        box-sizing: content-box;
+        border-bottom: 1px dashed #efefef;
+        width: 100%;
+        overflow: hidden;
+        .sub-task-item {
+          height: 40px;
+          background-color: #b5deff;
+          position: absolute;
+          border-radius: 8px;
+          font-size: 12px;
+          padding: 4px;
+          border: 2px solid #fff;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          cursor: pointer;
+          display: flex;
+          .content {
+            flex-grow: 1;
           }
+          .icon-point-left {
+            font-size: 20px;
+            margin-right: 6px;
+            flex-grow: 0;
+            color: #555555;
+          }
+          .icon-point-right {
+            font-size: 20px;
+            margin-left: 6px;
+            flex-grow: 0;
+            color: #555555;
+          }
+        }
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+    .no-data {
+      position: absolute;
+      top: 41px;
+      left: 0;
+      right: 0;
+      line-height: 100px;
+      text-align: center;
+      background-color: #fff;
+    }
+    .bg-mark {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      .bg-mark-item {
+        display: inline-block;
+        width: 100px;
+        height: 100%;
+        border-right: 1px dashed #efefef;
+        text-align: center;
+        &:last-child {
+          border-right: none;
         }
       }
     }
   }
-  .icon-point {
-    font-size: 24px;
-  }
+
   div,
   p {
     box-sizing: border-box;

@@ -13,25 +13,19 @@ export const TaskItem = ({ data, day }) => {
             key={item.id}
             className="sub-task-item"
             style={{
-              left: `${
-                item.sliceStartTime
-                  ? 0
-                  : ((item.startTime - day.currentMonthFirstDay) / 86400000) *
-                    100
-              }px`,
               top: `${index * 40}px`,
-              width: `${
-                item.sliceStartTime
-                  ? ((item.endTime - item.sliceStartTime) / 86400000) * 100 - 1
-                  : ((item.endTime - item.startTime) / 86400000) * 100 - 1
-              }px`,
+              left: `${item.left * 100}px`,
+              width: `${item.width * 100 - 1}px`,
             }}
             title={item.title}
           >
-            {item.sliceStartTime && (
-              <span className="icon-point">&#10094;</span>
+            {item.relativeCurrentMonth === "prv" && (
+              <span className="icon-point-left">&#10094;</span>
             )}
-            {item.title}
+            <span className="content">{item.title}</span>
+            {item.relativeCurrentMonth === "next" && (
+              <span className="icon-point-right">&#10095;</span>
+            )}
           </div>
         );
       })}
