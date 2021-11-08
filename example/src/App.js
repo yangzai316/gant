@@ -16,6 +16,9 @@ const App = () => {
         onTaskItemClick={(data) => {
           console.log('子任务被点击：', data);
         }}
+        legend={{
+          position: 'right'
+        }}
       ></Gant>
     </div>
   );

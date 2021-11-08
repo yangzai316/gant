@@ -1,11 +1,11 @@
-export const UIconfig = {
+export const UI_CONFIG = {
     subTaskItemHight: 20, // 每个子任务高度
     subTaskItemMarginTop: 4, // 每个子任务头部空白距离
 };
 
-export const STATEDICT = {
+export const STATE_DICT = {
     waiting: {
-        bgColor: "#95DAC1",
+        bgColor: "#C6D57E",
         value: '等待'
     },
     primary: {
@@ -13,7 +13,7 @@ export const STATEDICT = {
         value: '正常'
     },
     success: {
-        bgColor: '#6ECB63',
+        bgColor: '#61B15A',
         value: '成功'
     },
     warning: {

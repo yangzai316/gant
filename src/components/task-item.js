@@ -1,6 +1,6 @@
 import React from "react";
 import TaskItemSub from "./task-item-sub";
-import { UIconfig, STATEDICT } from './../const';
+import { UI_CONFIG, STATE_DICT } from './../const';
 
 export const TaskItem = ({ data, __onTaskClick, __onTaskItemClick }) => {
   return (
@@ -16,9 +16,9 @@ export const TaskItem = ({ data, __onTaskClick, __onTaskItemClick }) => {
               className={`task-item ${item.relativeCurrentMonth === "prv" ? "radius-left" : ""
                 } ${item.relativeCurrentMonth === "next" ? "radius-right" : ""}`}
               style={{
-                marginLeft: `${item.left * 100}px`,
-                width: `${item.width * 100}px`,
-                backgroundColor: `${STATEDICT[item.state].bgColor}`
+                marginLeft: `${item.__left * 100}px`,
+                width: `${item.__width * 100}px`,
+                backgroundColor: `${STATE_DICT[item.state].bgColor}`
               }}
               title={item.title}
               onClick={() => {

@@ -34,18 +34,18 @@ export const useFormatData = (data = [], day) => {
       for (const o of item.tasks) {
         taskCount += 1;
         subTaskCount += o?.subTasks?.length || 0;
-        o.left = (o.startTime - day.currentMonthFirstDay) / 86400000;
-        o.width = (o.endTime - o.startTime) / 86400000;
+        o.__left = (o.startTime - day.currentMonthFirstDay) / 86400000;
+        o.__width = (o.endTime - o.startTime) / 86400000;
         //  开始时间边界处理，加标识 relativeCurrentMonth=prv：开始时间早于当月月初
         if (day.currentMonthFirstDay > o.startTime) {
           o.relativeCurrentMonth = "prv";
-          o.left = 0;
-          o.width = (o.endTime - day.currentMonthFirstDay) / 86400000;
+          o.__left = 0;
+          o.__width = (o.endTime - day.currentMonthFirstDay) / 86400000;
         }
         //  结束时间边界处理，加标识 relativeCurrentMonth=next：结束时间晚于当月月未
         if (day.currentMonthLastDay < o.endTime) {
           o.relativeCurrentMonth = "next";
-          o.width = (day.currentMonthLastDay - o.startTime) / 86400000;
+          o.__width = (day.currentMonthLastDay - o.startTime) / 86400000;
         };
       }
       return {

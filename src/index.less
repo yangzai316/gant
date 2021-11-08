@@ -74,13 +74,14 @@
 						display: flex;
 						color: #fff;
 						margin: 4px 0;
+						border: 1px solid #555555;
 						.task-content {
 							flex-grow: 1;
 							font-size: 12px;
 							width: 100%;
 							p {
 								padding: 0 8px;
-								line-height: 20px;
+								line-height: 18px;
 								margin: 2px 0;
 								width: 100%;
 								overflow: hidden;
@@ -94,6 +95,7 @@
 								text-overflow: ellipsis;
 								overflow: hidden;
 								width: 100%;
+								border: 1px solid #fff;
 							}
 						}
 
@@ -172,13 +174,17 @@
 		font-size: 12px;
 		align-items: center;
 		margin-bottom: 6px;
-		i {
-			width: 10px;
-			height: 10px;
-			margin-right: 2px;
-		}
-		span {
-			margin-right: 8px;
+		padding-left: 8px;
+		& > div {
+			i {
+				display: inline-block;
+				width: 10px;
+				height: 10px;
+				margin-right: 2px;
+			}
+			span {
+				margin-right: 8px;
+			}
 		}
 	}
 }
