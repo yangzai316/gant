@@ -5,12 +5,14 @@
   border: 1px solid #efefef;
   .tip {
     position: fixed;
-    width: 99px;
-    height: 40px;
+    width: 100px;
+    height: 41px;
     line-height: 40px;
     text-align: center;
     background-color: #dddddd;
     z-index: 6;
+    border-right: 1px solid #f1f1f1;
+    border-bottom: 1px solid #f1f1f1;
   }
   .main {
     position: relative;
@@ -26,7 +28,7 @@
       p {
         display: inline-block;
         border-right: 1px solid #efefef;
-        background-color: #dddddd;
+        background-color: #CEE5D0;
         width: 100px;
         height: 40px;
         line-height: 40px;
@@ -45,8 +47,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        box-sizing: content-box;
-        background-color: #dddddd;
+        background-color: #CEE5D0;
         border-right: 1px solid #efefef;
         border-bottom: 1px solid #efefef;
         &:last-child {
@@ -66,19 +67,19 @@
         width: 100%;
         overflow: hidden;
         .task-item {
-          height: 70px;
-          background-color: #b5deff;
+          background-color: #A2D2FF;
           position: absolute;
-          border-radius: 8px;
-          font-size: 12px;
+          border-radius: 12px;
+          font-size: 14px;
           padding: 4px 0;
-          border-top: 4px solid #fff;
-          border-bottom: 4px solid #fff;
           white-space: nowrap;
           text-overflow: ellipsis;
           overflow: hidden;
           cursor: pointer;
           display: flex;
+          border:1px solid #423F3E;
+          color:#fff;
+          text-indent:6px;
           .task-content {
             flex-grow: 1;
             position: relative;
@@ -88,9 +89,10 @@
             .sub-task-item {
               position: absolute;
               width: 200px;
-              height: 10px;
-              border-radius: 5px;
               background-color: red;
+              line-height: 16px;
+              border-radius: 8px;
+              font-size: 12px;
             }
           }
           .icon-point-left {
@@ -110,9 +112,11 @@
         }
         .radius-left {
           border-radius: 0 8px 8px 0;
+          border-left: none;
         }
         .radius-right {
           border-radius: 8px 0 0 8px;
+          border-right: none;
         }
         &:last-child {
           border-bottom: none;

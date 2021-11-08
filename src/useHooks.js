@@ -8,7 +8,7 @@ import { getMonthDays } from "./utils";
 export const useDateInfo = (year, month) => {
   return useMemo(() => {
     const now = new Date();
-    const today = now.getDay();
+    const today = now.getDate();
     const total = getMonthDays(year, month);
     const currentMonthFirstDay = +new Date(`${year}-${month}-01 00:00:00`);
     const currentMonthLastDay = +new Date(`${year}-${month}-${total} 23:59:59`);
@@ -28,7 +28,6 @@ export const useDateInfo = (year, month) => {
  */
 export const useFormatData = (data = [], day) => {
   return useMemo(() => {
-    let subTotalCount = 0;
     let list = data.map((item) => {
       let subCount = 0;
       for (const o of item.tasks) {
@@ -47,15 +46,12 @@ export const useFormatData = (data = [], day) => {
           o.width = (day.currentMonthLastDay - o.startTime) / 86400000;
         }
       }
-      subTotalCount += subCount;
       return {
         ...item,
         subCount,
       };
     });
-    console.log(list);
     return {
-      subTotalCount, // 一共多少任务
       list, // 格式化后的数据
     };
   }, [data, day]);

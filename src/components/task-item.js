@@ -1,23 +1,24 @@
 import React from "react";
 import TaskItemSub from "./task-item-sub";
+import { UIconfig } from './../const';
 
 export const TaskItem = ({ data }) => {
   return (
     <div
       className="task"
       style={{
-        height: `${data.subCount * 70}px`,
+        height: `${data.subCount * (UIconfig.taskItemHeight + UIconfig.taskItemMarginTop) + UIconfig.taskItemMarginTop}px`,
       }}
     >
       {(data?.tasks || []).map((item, index) => {
         return (
           <div
             key={item.id}
-            className={`task-item ${
-              item.relativeCurrentMonth === "prv" ? "radius-left" : ""
-            } ${item.relativeCurrentMonth === "next" ? "radius-right" : ""}`}
+            className={`task-item ${item.relativeCurrentMonth === "prv" ? "radius-left" : ""
+              } ${item.relativeCurrentMonth === "next" ? "radius-right" : ""}`}
             style={{
-              top: `${index * 70}px`,
+              height: `${UIconfig.taskItemHeight}px`,
+              top: `${index * UIconfig.taskItemHeight + (index + 1) * UIconfig.taskItemMarginTop}px`,
               left: `${item.left * 100}px`,
               width: `${item.width * 100}px`,
             }}

@@ -13,7 +13,7 @@ const TaskItemSub = ({ list = [], taskStartTime }) => {
               left: `${((item.startTime - taskStartTime) / 86400000) * 100}px`,
               width: `${((item.endTime - item.startTime) / 86400000) * 100}px`,
             }}
-          ></p>
+          >123123</p>
         );
       })}
     </>

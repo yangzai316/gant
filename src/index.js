@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import "./index.less";
 import { useDateInfo, useFormatData } from "./useHooks";
+import { UIconfig } from './const'
 import BgMark from "./components/bg-mark";
 import Task from "./components/task";
 import SideLeft from "./components/side-left";
@@ -9,8 +10,9 @@ import Header from "./components/header";
 import Tip from "./components/Tip";
 
 const Gant = ({ data, year, month, emptyText, tipText }) => {
-  // 处理当前
+  // 处理当前时间信息
   const day = useDateInfo(year, month);
+  // 格式化数据
   const formatList = useFormatData(data, day);
   return (
     <div className="gant">
@@ -18,7 +20,6 @@ const Gant = ({ data, year, month, emptyText, tipText }) => {
       <div
         className="main"
         style={{
-          height: `${formatList.subTotalCount * 70 + 40}px`,
           width: `${(day.total + 1) * 100}px`,
         }}
       >
