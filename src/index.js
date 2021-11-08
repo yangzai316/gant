@@ -9,7 +9,7 @@ import Header from "./components/header";
 import Tip from "./components/Tip";
 import Legend from "./components/legend";
 
-const Gant = ({ data, year, month, emptyText, tipText }) => {
+const Gant = ({ data, year, month, emptyText, tipText, onTaskClick, onTaskItemClick }) => {
   // 处理当前时间信息
   const day = useDateInfo(year, month);
   // 格式化数据
@@ -27,7 +27,7 @@ const Gant = ({ data, year, month, emptyText, tipText }) => {
         >
           <Header day={day}></Header>
           {/* <SideLeft data={formatList.list}></SideLeft> */}
-          <Task data={formatList.list} day={day}></Task>
+          <Task data={formatList.list} day={day} __onTaskClick={onTaskClick} __onTaskItemClick={onTaskItemClick}></Task>
           {!formatList?.list?.length && <Empty emptyText={emptyText}></Empty>}
           <BgMark day={day}></BgMark>
         </div>

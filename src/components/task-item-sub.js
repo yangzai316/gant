@@ -1,6 +1,6 @@
 import React from "react";
 
-const TaskItemSub = ({ list = [], taskStartTime }) => {
+const TaskItemSub = ({ list = [], taskStartTime, __onTaskItemClick }) => {
   return (
     <>
       {list.map((item, index) => {
@@ -13,6 +13,10 @@ const TaskItemSub = ({ list = [], taskStartTime }) => {
               width: `${((item.endTime - item.startTime) / 86400000) * 100}px`,
             }}
             title={item.title}
+            onClick={(e) => {
+              e.stopPropagation();
+              __onTaskItemClick(item)
+            }}
           >{item.title}</p>
         );
       })}

@@ -2,7 +2,7 @@ import React from "react";
 import TaskItemSub from "./task-item-sub";
 import { UIconfig, STATEDICT } from './../const';
 
-export const TaskItem = ({ data }) => {
+export const TaskItem = ({ data, __onTaskClick, __onTaskItemClick }) => {
   return (
     <div className="task" >
       <div className="aside" >{data.title}</div>
@@ -21,6 +21,9 @@ export const TaskItem = ({ data }) => {
                 backgroundColor: `${STATEDICT[item.state].bgColor}`
               }}
               title={item.title}
+              onClick={() => {
+                __onTaskClick(item)
+              }}
             >
               {item.relativeCurrentMonth === "prv" && (
                 <span className="icon-point-left">&#10094;</span>
@@ -30,6 +33,7 @@ export const TaskItem = ({ data }) => {
                 <TaskItemSub
                   list={item?.subTasks || []}
                   taskStartTime={item.startTime}
+                  __onTaskItemClick={__onTaskItemClick}
                 ></TaskItemSub>
               </div>
               {item.relativeCurrentMonth === "next" && (
