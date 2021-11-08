@@ -29,9 +29,11 @@ export const useDateInfo = (year, month) => {
 export const useFormatData = (data = [], day) => {
   return useMemo(() => {
     let list = data.map((item) => {
-      let subCount = 0;
+      let taskCount = 0;
+      let subTaskCount = 0;
       for (const o of item.tasks) {
-        subCount += 1;
+        taskCount += 1;
+        subTaskCount += o?.subTasks?.length || 0;
         o.left = (o.startTime - day.currentMonthFirstDay) / 86400000;
         o.width = (o.endTime - o.startTime) / 86400000;
         //  开始时间边界处理，加标识 relativeCurrentMonth=prv：开始时间早于当月月初
@@ -44,13 +46,15 @@ export const useFormatData = (data = [], day) => {
         if (day.currentMonthLastDay < o.endTime) {
           o.relativeCurrentMonth = "next";
           o.width = (day.currentMonthLastDay - o.startTime) / 86400000;
-        }
+        };
       }
       return {
         ...item,
-        subCount,
+        taskCount,
+        subTaskCount
       };
     });
+    console.log(list);
     return {
       list, // 格式化后的数据
     };

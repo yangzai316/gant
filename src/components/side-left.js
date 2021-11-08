@@ -8,7 +8,9 @@ const SideLeft = ({ data = [] }) => {
           <div
             className="side-item"
             key={item.id}
-            style={{ height: `${item.subCount * (UIconfig.taskItemHeight + UIconfig.taskItemMarginTop) + UIconfig.taskItemMarginTop}px` }}
+            style={{
+              height: `${(item.taskCount + item.subTaskCount) * (UIconfig.subTaskItemHight + UIconfig.subTaskItemMarginTop) + item.taskCount * (8 + 4)}px`
+            }}
           >
             {item.title}
           </div>

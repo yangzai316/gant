@@ -1,160 +1,182 @@
 .gant {
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  border: 1px solid #efefef;
-  .tip {
-    position: fixed;
-    width: 100px;
-    height: 41px;
-    line-height: 40px;
-    text-align: center;
-    background-color: #dddddd;
-    z-index: 6;
-    border-right: 1px solid #f1f1f1;
-    border-bottom: 1px solid #f1f1f1;
-  }
-  .main {
-    position: relative;
-    box-sizing: content-box;
-    min-height: 140px;
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 4;
-      height: 40px;
-      border-bottom: 1px solid #efefef;
-      box-sizing: content-box;
-      p {
-        display: inline-block;
-        border-right: 1px solid #efefef;
-        background-color: #CEE5D0;
-        width: 100px;
-        height: 40px;
-        line-height: 40px;
-        text-align: center;
-        &:last-child {
-          border-right: none;
-        }
-      }
-    }
-    .left-side {
-      position: sticky;
-      left: 0;
-      width: 100px;
-      z-index: 3;
-      .side-item {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #CEE5D0;
-        border-right: 1px solid #efefef;
-        border-bottom: 1px solid #efefef;
-        &:last-child {
-          border-bottom: none;
-        }
-      }
-    }
-    .task-main {
-      position: absolute;
-      top: 40px;
-      left: 100px;
-      right: 0;
-      z-index: 2;
-      .task {
-        position: relative;
-        border-bottom: 1px dashed #efefef;
-        width: 100%;
-        overflow: hidden;
-        .task-item {
-          background-color: #A2D2FF;
-          position: absolute;
-          border-radius: 12px;
-          font-size: 14px;
-          padding: 4px 0;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          overflow: hidden;
-          cursor: pointer;
-          display: flex;
-          border:1px solid #423F3E;
-          color:#fff;
-          text-indent:6px;
-          .task-content {
-            flex-grow: 1;
-            position: relative;
-            .sub-task-title {
-              margin-bottom: 4px;
-            }
-            .sub-task-item {
-              position: absolute;
-              width: 200px;
-              background-color: red;
-              line-height: 16px;
-              border-radius: 8px;
-              font-size: 12px;
-            }
-          }
-          .icon-point-left {
-            font-size: 20px;
-            margin-right: 6px;
-            flex-grow: 0;
-            color: #555555;
-            align-self: center;
-          }
-          .icon-point-right {
-            font-size: 20px;
-            margin-left: 6px;
-            flex-grow: 0;
-            color: #555555;
-            align-self: center;
-          }
-        }
-        .radius-left {
-          border-radius: 0 8px 8px 0;
-          border-left: none;
-        }
-        .radius-right {
-          border-radius: 8px 0 0 8px;
-          border-right: none;
-        }
-        &:last-child {
-          border-bottom: none;
-        }
-      }
-    }
-    .no-data {
-      position: absolute;
-      top: 41px;
-      left: 0;
-      right: 0;
-      line-height: 100px;
-      text-align: center;
-      background-color: #fff;
-    }
-    .bg-mark {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 1;
-      display: flex;
-      .bg-mark-item {
-        width: 100px;
-        height: 100%;
-        border-right: 1px dashed #efefef;
-        &:last-child {
-          border-right: none;
-        }
-      }
-    }
-  }
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	border: 1px solid #efefef;
 
-  div,
-  p {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+	.tip {
+		position: fixed;
+		width: 100px;
+		height: 41px;
+		line-height: 40px;
+		text-align: center;
+		background-color: #dddddd;
+		z-index: 6;
+		border-right: 1px solid #f1f1f1;
+		border-bottom: 1px solid #f1f1f1;
+	}
+
+	.main {
+		position: relative;
+		box-sizing: content-box;
+		min-height: 140px;
+
+		.header {
+			position: sticky;
+			top: 0;
+			z-index: 4;
+			height: 40px;
+			border-bottom: 1px solid #efefef;
+			box-sizing: content-box;
+
+			p {
+				display: inline-block;
+				border-right: 1px solid #efefef;
+				background-color: #cee5d0;
+				width: 100px;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+
+				&:last-child {
+					border-right: none;
+				}
+			}
+		}
+
+		.left-side {
+			position: sticky;
+			left: 0;
+			width: 100px;
+			z-index: 3;
+
+			.side-item {
+				box-sizing: content-box;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background-color: #cee5d0;
+				border-right: 1px solid #efefef;
+				border-bottom: 1px solid #efefef;
+
+				&:last-child {
+					border-bottom: none;
+				}
+			}
+		}
+
+		.task-main {
+			position: absolute;
+			top: 41px;
+			left: 100px;
+			right: 0;
+			z-index: 2;
+
+			.task {
+				position: relative;
+				border-bottom: 1px dashed #efefef;
+				width: 100%;
+				overflow: hidden;
+
+				.task-item {
+					background-color: #a2d2ff;
+					border-radius: 8px;
+					font-size: 14px;
+					padding: 4px 0;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					overflow: hidden;
+					cursor: pointer;
+					display: flex;
+					color: #fff;
+					margin-top: 4px;
+					.task-content {
+						flex-grow: 1;
+						position: relative;
+						font-size: 12px;
+						width: 100%;
+						p {
+							padding: 0 8px;
+							line-height: 20px;
+							margin: 2px 0;
+							width: 100%;
+							overflow: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+						}
+						.sub-task-item {
+							background-color: #7868e6;
+							border-radius: 10px;
+						}
+					}
+
+					.icon-point-left {
+						font-size: 14px;
+						flex-grow: 0;
+						color: #555555;
+						align-self: center;
+					}
+
+					.icon-point-right {
+						font-size: 14px;
+						margin-left: 6px;
+						flex-grow: 0;
+						color: #555555;
+						align-self: center;
+					}
+				}
+
+				.radius-left {
+					border-radius: 0 8px 8px 0;
+					border-left: none;
+				}
+
+				.radius-right {
+					border-radius: 8px 0 0 8px;
+					border-right: none;
+				}
+
+				&:last-child {
+					border-bottom: none;
+				}
+			}
+		}
+
+		.no-data {
+			position: absolute;
+			top: 41px;
+			left: 0;
+			right: 0;
+			line-height: 100px;
+			text-align: center;
+			background-color: #fff;
+		}
+
+		.bg-mark {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			z-index: 1;
+			display: flex;
+
+			.bg-mark-item {
+				width: 100px;
+				height: 100%;
+				border-right: 1px dashed #efefef;
+
+				&:last-child {
+					border-right: none;
+				}
+			}
+		}
+	}
+
+	div,
+	p {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
 }
