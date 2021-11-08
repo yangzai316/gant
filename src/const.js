@@ -3,7 +3,7 @@ export const UIconfig = {
     subTaskItemMarginTop: 4, // 每个子任务头部空白距离
 };
 
-export const stateDict = {
+export const STATEDICT = {
     waiting: {
         bgColor: "#95DAC1",
         value: '等待'
