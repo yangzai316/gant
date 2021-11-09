@@ -1,11 +1,12 @@
 {
-    "name": "gant",
+    "name": "react-gant",
     "version": "1.0.0",
-    "description": "this is react component",
+    "description": "this is react component gant",
     "author": "cunyang",
     "license": "MIT",
     "keywords": [
-        "gant"
+        "gant",
+        "react"
     ],
     "directories": {
         "example": "example"

@@ -1,13 +1,19 @@
+### 效果预览
+![1.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d3b4277bb15c4133ac584d91275da934~tplv-k3u1fbpfcp-watermark.image?)
+
+
+![2.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f413ea2eda8c40c08dc07947a8790fb5~tplv-k3u1fbpfcp-watermark.image?)
+
 ### 简介
-react 甘特图组件，支持子任务
+react 甘特图组件，支持子任务，背景色可配置，状态可配置
 
 ### 使用
 ```
 # 下载依赖
-npm install -S gant
+npm install -S react-gant
 
 # 引用使用
-import gant from 'gant';
+import gant from 'react-gant';
 
 # 使用
 <gant data={[]}></gant>
@@ -160,7 +166,7 @@ const App = () => {
     <div style={{ height: "600px" }}>
 
       <Gant
-        data={data}
+        data={data} // 自行按照上述文档定义并传入
         year={2021}
         month={11}
         emptyText="没有数据啦..."
