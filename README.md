@@ -1,3 +1,15 @@
+<div>
+  <a href="https://reactjs.org/">
+    <img width="200" height="200"
+      src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg">
+  </a>
+</div>
+</br>
+
+[![NPM version](https://img.shields.io/npm/v/react-gant.svg)](https://www.npmjs.com/package/react-gant)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/yangzaiwangzi/gant/blob/main/LICENSE) 
+
+
 ### 效果预览
 ![1.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d3b4277bb15c4133ac584d91275da934~tplv-k3u1fbpfcp-watermark.image?)
 
