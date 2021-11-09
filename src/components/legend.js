@@ -1,23 +1,19 @@
 import React from 'react';
-import { STATE_DICT } from './../const'
+import { STATE_MAP } from './../const'
 
 export const Legend = ({ legend }) => {
 
 
     return <div className="legend" style={{ justifyContent: legend?.position || 'left' }}>
         {
-            Object.keys(STATE_DICT).map((item, index) => {
+            Object.keys(STATE_MAP).map((item, index) => {
                 return <div key={index}>
-                    <i style={{ backgroundColor: STATE_DICT[item].bgColor }}></i>
-                    <span>{STATE_DICT[item].value}</span>
+                    <i style={{ backgroundColor: STATE_MAP[item].bgColor }}></i>
+                    <span>{STATE_MAP[item].value}</span>
                 </div>
             })
 
         }
-        <div>
-            <i style={{ backgroundColor: '#7868e6' }}></i>
-            <span>子任务</span>
-        </div>
 
     </div>
 };

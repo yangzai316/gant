@@ -19,6 +19,11 @@ const App = () => {
         legend={{
           position: 'right'
         }}
+        showTodaylable={true}
+        nowTimeLine={{
+          show: true,
+          duration: 1000
+        }}
       ></Gant>
     </div>
   );

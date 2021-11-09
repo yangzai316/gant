@@ -1,6 +1,6 @@
 import React from "react";
 import TaskItemSub from "./task-item-sub";
-import { UI_CONFIG, STATE_DICT } from './../const';
+import { UI_CONFIG, STATE_MAP } from './../const';
 
 export const TaskItem = ({ data, __onTaskClick, __onTaskItemClick }) => {
   return (
@@ -18,7 +18,7 @@ export const TaskItem = ({ data, __onTaskClick, __onTaskItemClick }) => {
               style={{
                 marginLeft: `${item.__left * 100}px`,
                 width: `${item.__width * 100}px`,
-                backgroundColor: `${STATE_DICT[item.state].bgColor}`
+                backgroundColor: `${STATE_MAP[item.state].bgColor}`
               }}
               title={item.title}
               onClick={() => {

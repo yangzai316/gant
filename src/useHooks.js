@@ -9,14 +9,22 @@ export const useDateInfo = (year, month) => {
   return useMemo(() => {
     const now = new Date();
     const today = now.getDate();
+    const toHours = now.getHours();
+    const toMinutes = now.getMinutes();
     const total = getMonthDays(year, month);
     const currentMonthFirstDay = +new Date(`${year}-${month}-01 00:00:00`);
+    const currentMonthFirstWeek = new Date(`${year}-${month}-01 00:00:00`).getDay();
     const currentMonthLastDay = +new Date(`${year}-${month}-${total} 23:59:59`);
     return {
       total, // 该月一共多少天；
+      currentMonthFirstWeek,// 该月第一天是周几
       today, // 今天是几号；
+      toHours: toHours > 9 ? toHours : `0${toHours}`,// 当前的小时值；
+      toMinutes: toMinutes > 9 ? toMinutes : `0${toMinutes}`,// 当前的分钟值
       currentMonthFirstDay, // 该月第一天开始（00:00:00）的时间戳；
       currentMonthLastDay, // 该月最后一天结束（23:59:59）的时间戳；
+      now,// 当前时间戳
+
     };
   }, [year, month]);
 };
@@ -54,7 +62,6 @@ export const useFormatData = (data = [], day) => {
         subTaskCount
       };
     });
-    console.log(list);
     return {
       list, // 格式化后的数据
     };
