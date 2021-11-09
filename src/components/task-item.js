@@ -1,8 +1,7 @@
 import React from "react";
 import TaskItemSub from "./task-item-sub";
-import { UI_CONFIG, STATE_MAP } from './../const';
 
-export const TaskItem = ({ data, __onTaskClick, __onTaskItemClick }) => {
+export const TaskItem = ({ data, __onTaskClick, __onTaskItemClick, __STATEMAP__ }) => {
   return (
     <div className="task" >
       <div className="aside" >{data.title}</div>
@@ -18,7 +17,7 @@ export const TaskItem = ({ data, __onTaskClick, __onTaskItemClick }) => {
               style={{
                 marginLeft: `${item.__left * 100}px`,
                 width: `${item.__width * 100}px`,
-                backgroundColor: `${STATE_MAP[item.state].bgColor}`
+                backgroundColor: `${__STATEMAP__[item.state].bgColor}`
               }}
               title={item.title}
               onClick={() => {

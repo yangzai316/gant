@@ -1,15 +1,14 @@
 import React from 'react';
-import { STATE_MAP } from './../const'
 
-export const Legend = ({ legend }) => {
+export const Legend = ({ legend, __STATEMAP__ }) => {
 
 
-    return <div className="legend" style={{ justifyContent: legend?.position || 'left' }}>
+    return legend.show && <div className="legend" style={{ justifyContent: legend?.position || 'left' }}>
         {
-            Object.keys(STATE_MAP).map((item, index) => {
+            Object.keys(__STATEMAP__).map((item, index) => {
                 return <div key={index}>
-                    <i style={{ backgroundColor: STATE_MAP[item].bgColor }}></i>
-                    <span>{STATE_MAP[item].value}</span>
+                    <i style={{ backgroundColor: __STATEMAP__[item].bgColor }}></i>
+                    <span>{__STATEMAP__[item].label}</span>
                 </div>
             })
 
