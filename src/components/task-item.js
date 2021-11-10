@@ -1,46 +1,21 @@
 import React from "react";
-import TaskItemSub from "./task-item-sub";
+import TaskNormalItem from "./task-normal-item";
+import TaskCompactItem from './task-compact-item';
 
-export const TaskItem = ({ data, __onTaskClick, __onTaskItemClick, __STATEMAP__ }) => {
+
+export const TaskItem = ({ data, __onTaskClick, __onTaskItemClick, __STATEMAP__, mode }) => {
   return (
     <div className="task" >
       <div className="aside" >{data.title}</div>
       <div
         className="section"
-      >
-        {(data?.tasks || []).map((item, index) => {
-          return (
-            <div
-              key={item.id}
-              className={`task-item ${item.relativeCurrentMonth === "prv" ? "radius-left" : ""
-                } ${item.relativeCurrentMonth === "next" ? "radius-right" : ""}`}
-              style={{
-                marginLeft: `${item.__left * 100}px`,
-                width: `${item.__width * 100}px`,
-                backgroundColor: `${__STATEMAP__[item.state].bgColor}`
-              }}
-              title={item.title}
-              onClick={() => {
-                __onTaskClick(item)
-              }}
-            >
-              {item.relativeCurrentMonth === "prv" && (
-                <span className="icon-point-left">&#10094;</span>
-              )}
-              <div className="task-content">
-                <p>{item.title}</p>
-                <TaskItemSub
-                  list={item?.subTasks || []}
-                  taskStartTime={item.startTime}
-                  __onTaskItemClick={__onTaskItemClick}
-                ></TaskItemSub>
-              </div>
-              {item.relativeCurrentMonth === "next" && (
-                <span className="icon-point-right">&#10095;</span>
-              )}
-            </div>
-          );
-        })}
+      >{
+          mode === 1 ?
+            <TaskNormalItem tasks={data?.tasks || []} __onTaskClick={__onTaskClick} __onTaskItemClick={__onTaskItemClick} __STATEMAP__={__STATEMAP__}></TaskNormalItem>
+            : <TaskCompactItem tasks={data?.tasks || []} __onTaskClick={__onTaskClick} __onTaskItemClick={__onTaskItemClick} __STATEMAP__={__STATEMAP__}></TaskCompactItem>
+
+        }
+
       </div>
     </div>
   );

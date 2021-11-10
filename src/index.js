@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import "./index.less";
-import { useDateInfo, useFormatData } from "./useHooks";
+import { useDateInfo, useFormatData, useFormatCompactData } from "./useHooks";
 import BgMark from "./components/bg-mark";
 import Task from "./components/task";
 import Empty from "./components/empty";
@@ -21,19 +21,22 @@ const Gant = ({
   legend,
   showTodaylable,
   nowTimeLine,
-  stateMap
+  stateMap,
+  mode,
+  isOrdered
 }) => {
   // 处理当前时间信息
   const day = useDateInfo(year, month);
   // 格式化数据
-  const formatList = useFormatData(data, day);
+  const formatList = useFormatData(data, day, isOrdered, mode);
   // 状态配置处理
   const __STATEMAP__ = useMemo(() => {
     return {
       ...STATE_MAP,
       ...stateMap
     }
-  }, [stateMap])
+  }, [stateMap]);
+
   return (
     <div className="gant-container">
       <Legend legend={legend} __STATEMAP__={__STATEMAP__}></Legend>
@@ -46,8 +49,16 @@ const Gant = ({
           }}
         >
           <Header day={day} showTodaylable={showTodaylable}></Header>
-          <Task __STATEMAP__={__STATEMAP__} data={formatList.list} day={day} __onTaskClick={onTaskClick} __onTaskItemClick={onTaskItemClick}></Task>
-          {!formatList?.list?.length && <Empty emptyText={emptyText}></Empty>}
+
+          <Task
+            __STATEMAP__={__STATEMAP__}
+            data={formatList}
+            day={day}
+            __onTaskClick={onTaskClick}
+            __onTaskItemClick={onTaskItemClick}
+            mode={mode}
+          />
+          {!formatList?.length && <Empty emptyText={emptyText}></Empty>}
           <BgMark day={day} showTodaylable={showTodaylable} nowTimeLine={nowTimeLine}></BgMark>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 import Gant from "gant";
 import { data } from "./data";
 const __STATEMAP = {
@@ -32,8 +32,17 @@ const __STATEMAP = {
   },
 };
 const App = () => {
+  const [type, setType] = useState(1);
   return (
     <div style={{ height: "600px" }}>
+      <button onClick={() => {
+        setType(1)
+      }}>常规</button>
+      <button onClick={() => {
+        setType(2)
+      }}>紧凑</button>
+      {type === 1 ? "常规" : "紧凑"}
+
       <Gant
         data={data}
         year={2021}
@@ -55,6 +64,7 @@ const App = () => {
           duration: 60000
         }}
         stateMap={__STATEMAP}
+        mode={type}
       ></Gant>
     </div>
   );

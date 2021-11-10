@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { getMonthDays } from "./utils";
+import { getMonthDays, formatTrack, sortData } from "./utils";
 /**
  * 处理该月的数据
  * @param {*} year 年
@@ -34,36 +34,39 @@ export const useDateInfo = (year, month) => {
  * @param {*} data 任务数据
  * @param {*} day 该月的时间信息
  */
-export const useFormatData = (data = [], day) => {
+
+
+export const useFormatData = (data = [], day, isOrdered, mode) => {
+
+
   return useMemo(() => {
-    let list = data.map((item) => {
-      let taskCount = 0;
-      let subTaskCount = 0;
-      for (const o of item.tasks) {
-        taskCount += 1;
-        subTaskCount += o?.subTasks?.length || 0;
-        o.__left = (o.startTime - day.currentMonthFirstDay) / 86400000;
-        o.__width = (o.endTime - o.startTime) / 86400000;
-        //  开始时间边界处理，加标识 relativeCurrentMonth=prv：开始时间早于当月月初
-        if (day.currentMonthFirstDay > o.startTime) {
-          o.relativeCurrentMonth = "prv";
-          o.__left = 0;
-          o.__width = (o.endTime - day.currentMonthFirstDay) / 86400000;
+    const _ = JSON.parse(JSON.stringify(data));
+
+    if (mode === 1) {
+      return _.map((item) => {
+        for (const o of item.tasks) {
+          o.__left = (o.startTime - day.currentMonthFirstDay) / 86400000;
+          o.__width = (o.endTime - o.startTime) / 86400000;
+          //  开始时间边界处理，加标识 relativeCurrentMonth=prv：开始时间早于当月月初
+          if (day.currentMonthFirstDay > o.startTime) {
+            o.relativeCurrentMonth = "prv";
+            o.__left = 0;
+            o.__width = (o.endTime - day.currentMonthFirstDay) / 86400000;
+          }
+          //  结束时间边界处理，加标识 relativeCurrentMonth=next：结束时间晚于当月月未
+          if (day.currentMonthLastDay < o.endTime) {
+            o.relativeCurrentMonth = "next";
+            o.__width = (day.currentMonthLastDay - o.startTime) / 86400000;
+          };
         }
-        //  结束时间边界处理，加标识 relativeCurrentMonth=next：结束时间晚于当月月未
-        if (day.currentMonthLastDay < o.endTime) {
-          o.relativeCurrentMonth = "next";
-          o.__width = (day.currentMonthLastDay - o.startTime) / 86400000;
-        };
-      }
-      return {
-        ...item,
-        taskCount,
-        subTaskCount
-      };
-    });
-    return {
-      list, // 格式化后的数据
-    };
-  }, [data, day]);
+        return item
+      });
+    } else {
+      return _.map(item => {
+        !isOrdered && (item.tasks = sortData(item.tasks)); // 无序，则进行排序处理
+        item.tasks = formatTrack(item.tasks, day);// 数据紧凑式格式化
+        return item;
+      });
+    }
+  }, [data, day, isOrdered, mode])
 };

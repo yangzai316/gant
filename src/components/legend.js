@@ -7,7 +7,7 @@ export const Legend = ({ legend, __STATEMAP__ }) => {
         {
             Object.keys(__STATEMAP__).map((item, index) => {
                 return <div key={index}>
-                    <i style={{ backgroundColor: __STATEMAP__[item].bgColor }}></i>
+                    <i style={{ backgroundColor: __STATEMAP__[item]?.bgColor }}></i>
                     <span>{__STATEMAP__[item].label}</span>
                 </div>
             })
