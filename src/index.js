@@ -23,12 +23,13 @@ const Gant = ({
   nowTimeLine,
   stateMap,
   mode,
-  isOrdered
+  order,
+
 }) => {
   // 处理当前时间信息
   const day = useDateInfo(year, month);
   // 格式化数据
-  const formatList = useFormatData(data, day, isOrdered, mode);
+  const formatList = useFormatData(data, day, order, mode);
   // 状态配置处理
   const __STATEMAP__ = useMemo(() => {
     return {

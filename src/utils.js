@@ -9,7 +9,7 @@ export const getMonthDays = (year, month) => new Date(year, month, 0).getDate();
  */
 
 
-export const sortData = (list) => list.sort((a, b) => a - b);
+export const sortData = (list) => list.sort((a, b) => a.startTime - b.startTime);
 
 /**
  * 对数据进行同轨道整合

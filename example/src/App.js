@@ -32,16 +32,16 @@ const __STATEMAP = {
   },
 };
 const App = () => {
-  const [type, setType] = useState(1);
+  const [type, setType] = useState('normal');
   return (
     <div style={{ height: "600px" }}>
       <button onClick={() => {
-        setType(1)
+        setType('normal')
       }}>常规</button>
       <button onClick={() => {
-        setType(2)
+        setType('compact')
       }}>紧凑</button>
-      {type === 1 ? "常规" : "紧凑"}
+      :{type}
 
       <Gant
         data={data}
@@ -65,6 +65,10 @@ const App = () => {
         }}
         stateMap={__STATEMAP}
         mode={type}
+        order={{
+          well: false,
+          need: true
+        }}
       ></Gant>
     </div>
   );

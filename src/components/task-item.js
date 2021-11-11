@@ -10,7 +10,7 @@ export const TaskItem = ({ data, __onTaskClick, __onTaskItemClick, __STATEMAP__,
       <div
         className="section"
       >{
-          mode === 1 ?
+          mode === "normal" ?
             <TaskNormalItem tasks={data?.tasks || []} __onTaskClick={__onTaskClick} __onTaskItemClick={__onTaskItemClick} __STATEMAP__={__STATEMAP__}></TaskNormalItem>
             : <TaskCompactItem tasks={data?.tasks || []} __onTaskClick={__onTaskClick} __onTaskItemClick={__onTaskItemClick} __STATEMAP__={__STATEMAP__}></TaskCompactItem>
 
