@@ -34,19 +34,23 @@ import gant from 'react-gant';
 ### 文档
 #### 属性
 
-|      Name      |  Type   | Description                               |
-| :------------: | :-----: | :---------------------------------------- |
-|      data      |  Array  | 数据源，详细结构见下                      |
-|      year      | Number  | 年                                        |
-|     month      | Number  | 月                                        |
-|   emptyText    | String  | 没有数据时的现显示文案                    |
-| showTodaylable | Boolean | 是否显示【今天】的标识                    |
-|     legend     | Object  | 图例的配置，详细见下                      |
-|  nowTimeLine   | Object  | 是否显示当前时间线，详细见下              |
-|    stateMap    | Object  | 数据状态显示的背景色和label配置，详细见下 |
+|      Name      |  Type   | Description                                                           |
+| :------------: | :-----: | :-------------------------------------------------------------------- |
+|      data      |  Array  | 数据源，详细结构见下                                                  |
+|      year      | Number  | 年                                                                    |
+|     month      | Number  | 月                                                                    |
+|   emptyText    | String  | 没有数据时的现显示文案                                                |
+| showTodaylable | Boolean | 是否显示【今天】的标识                                                |
+|     legend     | Object  | 图例的配置，详细见下                                                  |
+|  nowTimeLine   | Object  | 是否显示当前时间线，详细见下                                          |
+|    stateMap    | Object  | 数据状态显示的背景色和label配置，详细见下                             |
+|      mode      | String  | 视图展示样式，2种， 常规(normal)｜紧凑(compact)，效果可见下子属性描述 |
+|     order      | Object  | 传入的data数据是否按照startTime排序，详细见下                         |
 
 
 #### 子属性 legend 
+
+甘特图上方，图例显示设置
 
 |   Name   |  Type   | Description                 |
 | :------: | :-----: | :-------------------------- |
@@ -73,6 +77,14 @@ import gant from 'react-gant';
 |  error  |         #FA1E0E         | 异常          |
 | closed  |         #DDDDDD         | 关闭          |
 | subTask |         #7868e6         | 子任务        |
+#### 子属性 order 
+
+传入的data数据是否按照 startTime 排序设置，安排 startTime从小到大排序后的数据，在【紧凑】模式下，效果更好。内部排序需要时间和性能，酌情配置。
+
+| Name  |  Type   | Description                                                                                        |
+| :---: | :-----: | :------------------------------------------------------------------------------------------------- |
+| well  | Boolean | true｜false，源数据是否已经为有序。已有序，内部不在做排序处理，节省性能                            |
+| need  | Boolean | true｜false，是否需要内部排序处理。well配置为 false 时才有效，即：源数据本无序，是否需要做排序处理 |
 
 ### 事件
 
