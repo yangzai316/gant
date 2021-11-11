@@ -85,7 +85,15 @@ import gant from 'react-gant';
 | :---: | :-----: | :------------------------------------------------------------------------------------------------- |
 | well  | Boolean | true｜false，源数据是否已经为有序。已有序，内部不在做排序处理，节省性能                            |
 | need  | Boolean | true｜false，是否需要内部排序处理。well配置为 false 时才有效，即：源数据本无序，是否需要做排序处理 |
+#### 子属性 mode
 
+常规模式示意图
+
+![21.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4bc78bada80a4a559c52271d88a151e9~tplv-k3u1fbpfcp-watermark.image?)
+
+紧凑模式示意图（能一行显示的，就合并为一行显示）
+
+![22.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e06d678bfa5047ee94e123c1e0bd8c04~tplv-k3u1fbpfcp-watermark.image?)
 ### 事件
 
 |      Name       |   Type   | Description  | Params               |
