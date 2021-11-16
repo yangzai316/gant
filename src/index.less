@@ -1,206 +1,201 @@
 .gant-container {
-	width: 100%;
-	height: 100%;
-	.gant {
-		width: 100%;
-		height: 100%;
-		overflow: auto;
-		border: 1px solid #ccc;
-		.tip {
-			position: fixed;
-			width: 100px;
-			height: 41px;
-			line-height: 40px;
-			text-align: center;
-			background-color: #dddddd;
-			z-index: 6;
-			border-right: 1px solid #f1f1f1;
-			border-bottom: 1px solid #f1f1f1;
-		}
+  width: 100%;
+  height: 100%;
+  .gant {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    border: 1px solid #ccc;
+    .tip {
+      position: fixed;
+      width: 100px;
+      height: 41px;
+      line-height: 40px;
+      text-align: center;
+      background-color: #dddddd;
+      z-index: 6;
+      border-right: 1px solid #f1f1f1;
+      border-bottom: 1px solid #f1f1f1;
+    }
 
-		.main {
-			position: relative;
-			box-sizing: content-box;
-			min-height: 140px;
+    .main {
+      position: relative;
+      box-sizing: content-box;
+      .header {
+        position: sticky;
+        top: 0;
+        z-index: 4;
+        height: 40px;
+        box-sizing: content-box;
+        border-bottom: 1px solid #efefef;
+        display: flex;
+        div {
+          border-right: 1px solid #efefef;
+          background-color: #dddddd;
+          width: 100px;
+          height: 40px;
+          text-align: center;
+          font-size: 12px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          &:last-child {
+            border-right: none;
+          }
+        }
+      }
+      .task {
+        display: flex;
+        border-bottom: 1px dashed #efefef;
+        .aside {
+          width: 100px;
+          min-height: 100%;
+          background-color: #dddddd;
+          border-bottom: 1px solid #efefef;
+          border-right: 1px solid #efefef;
+          position: sticky;
+          left: 0;
+          z-index: 2;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .section {
+          border-bottom: 1px dashed #efefef;
+          overflow: hidden;
+          .task-item {
+            background-color: #a2d2ff;
+            border-radius: 8px;
+            font-size: 14px;
+            padding: 4px 0;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            cursor: pointer;
+            display: flex;
+            color: #fff;
+            margin: 4px 0;
+            border: 1px solid #555555;
+            .task-content {
+              flex-grow: 1;
+              font-size: 12px;
+              width: 100%;
+              p {
+                padding: 0 8px;
+                line-height: 18px;
+                margin: 2px 0;
+                width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+              }
+              .sub-task-item {
+                background-color: #7868e6;
+                border-radius: 10px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                width: 100%;
+                border: 1px solid #fff;
+              }
+            }
 
-			.header {
-				position: sticky;
-				top: 0;
-				z-index: 4;
-				height: 40px;
-				box-sizing: content-box;
-				border-bottom: 1px solid #efefef;
-				display: flex;
-				div {
-					border-right: 1px solid #efefef;
-					background-color: #dddddd;
-					width: 100px;
-					height: 40px;
-					text-align: center;
-					font-size: 12px;
-					display: flex;
-					flex-direction: column;
-					justify-content: center;
-					&:last-child {
-						border-right: none;
-					}
-				}
-			}
-			.task {
-				display: flex;
-				border-bottom: 1px dashed #efefef;
-				.aside {
-					width: 100px;
-					min-height: 100%;
-					background-color: #dddddd;
-					border-bottom: 1px solid #efefef;
-					border-right: 1px solid #efefef;
-					position: sticky;
-					left: 0;
-					z-index: 2;
-					display: flex;
-					align-items: center;
-					justify-content: center;
-				}
-				.section {
-					border-bottom: 1px dashed #efefef;
-					overflow: hidden;
-					.task-item {
-						background-color: #a2d2ff;
-						border-radius: 8px;
-						font-size: 14px;
-						padding: 4px 0;
-						white-space: nowrap;
-						text-overflow: ellipsis;
-						overflow: hidden;
-						cursor: pointer;
-						display: flex;
-						color: #fff;
-						margin: 4px 0;
-						border: 1px solid #555555;
-						.task-content {
-							flex-grow: 1;
-							font-size: 12px;
-							width: 100%;
-							p {
-								padding: 0 8px;
-								line-height: 18px;
-								margin: 2px 0;
-								width: 100%;
-								overflow: hidden;
-								text-overflow: ellipsis;
-								white-space: nowrap;
-							}
-							.sub-task-item {
-								background-color: #7868e6;
-								border-radius: 10px;
-								white-space: nowrap;
-								text-overflow: ellipsis;
-								overflow: hidden;
-								width: 100%;
-								border: 1px solid #fff;
-							}
-						}
+            .icon-point-left {
+              font-size: 14px;
+              flex-grow: 0;
+              color: #555555;
+              align-self: center;
+            }
 
-						.icon-point-left {
-							font-size: 14px;
-							flex-grow: 0;
-							color: #555555;
-							align-self: center;
-						}
+            .icon-point-right {
+              font-size: 14px;
+              margin-left: 6px;
+              flex-grow: 0;
+              color: #555555;
+              align-self: center;
+            }
+          }
 
-						.icon-point-right {
-							font-size: 14px;
-							margin-left: 6px;
-							flex-grow: 0;
-							color: #555555;
-							align-self: center;
-						}
-					}
+          .radius-left {
+            border-radius: 0 8px 8px 0;
+            border-left: none;
+          }
 
-					.radius-left {
-						border-radius: 0 8px 8px 0;
-						border-left: none;
-					}
+          .radius-right {
+            border-radius: 8px 0 0 8px;
+            border-right: none;
+          }
 
-					.radius-right {
-						border-radius: 8px 0 0 8px;
-						border-right: none;
-					}
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+      }
 
-					&:last-child {
-						border-bottom: none;
-					}
-				}
-			}
+      .bg-mark {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        display: flex;
 
-			.no-data {
-				position: absolute;
-				top: 41px;
-				left: 0;
-				right: 0;
-				line-height: 100px;
-				text-align: center;
-				background-color: #fff;
-			}
+        .bg-mark-item {
+          width: 100px;
+          height: 100%;
+          border-right: 1px dashed #efefef;
 
-			.bg-mark {
-				position: absolute;
-				top: 0;
-				bottom: 0;
-				left: 0;
-				right: 0;
-				z-index: -1;
-				display: flex;
+          &:last-child {
+            border-right: none;
+          }
+        }
+        .now-line {
+          position: absolute;
+          height: 100%;
+          border-right: 1px dashed red;
+          &::before {
+            content: attr(data-time);
+            position: absolute;
+            top: 40px;
+            left: 2px;
+            font-size: 12px;
+            color: red;
+          }
+        }
+      }
+    }
 
-				.bg-mark-item {
-					width: 100px;
-					height: 100%;
-					border-right: 1px dashed #efefef;
-
-					&:last-child {
-						border-right: none;
-					}
-				}
-				.now-line {
-					position: absolute;
-					height: 100%;
-					border-right: 1px dashed red;
-					&::before {
-						content: attr(data-time);
-						position: absolute;
-						top: 40px;
-						left: 2px;
-						font-size: 12px;
-						color: red;
-					}
-				}
-			}
-		}
-
-		div,
-		p {
-			box-sizing: border-box;
-			margin: 0;
-			padding: 0;
-		}
-	}
-	.legend {
-		display: flex;
-		font-size: 12px;
-		align-items: center;
-		margin-bottom: 6px;
-		padding-left: 8px;
-		& > div {
-			i {
-				display: inline-block;
-				width: 10px;
-				height: 10px;
-				margin-right: 2px;
-			}
-			span {
-				margin-right: 8px;
-			}
-		}
-	}
+    .no-data {
+      position: fixed;
+      left: 0;
+      right: 0;
+      line-height: 40px;
+      text-align: center;
+    }
+  }
+  .legend {
+    display: flex;
+    font-size: 12px;
+    align-items: center;
+    margin-bottom: 6px;
+    padding-left: 8px;
+    & > div {
+      i {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin-right: 2px;
+      }
+      span {
+        margin-right: 8px;
+      }
+    }
+  }
+  div,
+  p {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 }

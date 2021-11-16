@@ -1,21 +1,26 @@
 /**
- * 获取当前月一共多少天
+ * 
+ * @param {*} year 
+ * @param {*} month 
+ * @returns 获取当前月一共多少天
  */
-
 export const getMonthDays = (year, month) => new Date(year, month, 0).getDate();
 
+
 /**
- * 对数据排序，startTime从小到大
+ * 
+ * @param {*} list 
+ * @returns 对数据排序，startTime从小到大
  */
-
-
 export const sortData = (list) => list.sort((a, b) => a.startTime - b.startTime);
 
+
 /**
- * 对数据进行同轨道整合
+ * 
+ * @param {*} list 需要格式化的数据
+ * @param {*} day 格式化中需要当月的时间数据
+ * @returns 对数据进行同轨道整合-紧凑模式下
  */
-
-
 export const formatTrack = (list, day) => {
     const res = [];
     list.forEach(item => {
@@ -50,4 +55,14 @@ export const formatTrack = (list, day) => {
         };
     };
     return res;
+};
+
+/**
+ * 
+ * @param {*} h 小时
+ * @param {*} m 分钟
+ * @returns 小时或分钟未满10，补0
+ */
+export const formatHMTime = (h, m) => {
+    return `${h > 9 ? h : '0' + h}:${m > 9 ? m : '0' + m}`
 };

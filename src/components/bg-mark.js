@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { formatHMTime } from "../utils";
 
 const BgMark = ({ day, showTodaylable = true, nowTimeLine }) => {
   // 定时器，修改时间线位置
@@ -31,7 +32,7 @@ const BgMark = ({ day, showTodaylable = true, nowTimeLine }) => {
       {nowTimeLine.show && <p
         className="now-line"
         style={{ left: `${(nowTime - day.currentMonthFirstDay) / 86400000 * 100 + 100}px` }}
-        data-time={`${nowTime.getHours()}:${nowTime.getMinutes()}`}
+        data-time={formatHMTime(nowTime.getHours(), nowTime.getMinutes())}
       ></p>}
     </div>
   );

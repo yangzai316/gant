@@ -59,9 +59,9 @@ const Gant = ({
             __onTaskItemClick={onTaskItemClick}
             mode={mode}
           />
-          {!formatList?.length && <Empty emptyText={emptyText}></Empty>}
           <BgMark day={day} showTodaylable={showTodaylable} nowTimeLine={nowTimeLine}></BgMark>
         </div>
+        {!formatList?.length && <Empty emptyText={emptyText}></Empty>}
       </div>
     </div>
   );

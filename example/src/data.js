@@ -1,4 +1,5 @@
-export const data = [
+export const data = [];
+const b = [
   {
     title: "张三",
     id: "x-1",
