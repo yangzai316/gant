@@ -42,7 +42,7 @@ export const useFormatData = (data = [], day, order, mode) => {
 
     if (mode === 'normal') {
       return _.map((item) => {
-        (!order.well && order.need) && (item.tasks = sortData(item.tasks)); // 无序&需要排序，则进行排序处理
+        (!order?.well && order?.need) && (item.tasks = sortData(item.tasks)); // 无序&需要排序，则进行排序处理
         console.log(item.tasks);
         for (const o of item.tasks) {
           o.__left = (o.startTime - day.currentMonthFirstDay) / 86400000;
@@ -63,7 +63,7 @@ export const useFormatData = (data = [], day, order, mode) => {
       });
     } else {
       return _.map(item => {
-        (!order.well && order.need) && (item.tasks = sortData(item.tasks)); // 无序&需要排序，则进行排序处理
+        (!order?.well && order?.need) && (item.tasks = sortData(item.tasks)); // 无序&需要排序，则进行排序处理
         item.tasks = formatTrack(item.tasks, day);// 数据紧凑式格式化
         return item;
       });
