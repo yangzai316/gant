@@ -45,8 +45,8 @@ const App = () => {
 
       <Gant
         data={data}
-        year={2021}
-        month={11}
+        year={2022}
+        month={8}
         emptyText="没有数据啦..."
         onTaskClick={(data) => {
           console.log('任务被点击：', data);
