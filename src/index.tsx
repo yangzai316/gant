@@ -1,6 +1,6 @@
-import React, { useMemo } from "react";
+import React, { FC, useMemo } from "react";
 import "./index.less";
-import { useDateInfo, useFormatData, useFormatCompactData } from "./useHooks";
+import { useDateInfo, useFormatData } from "./useHooks";
 import BgMark from "./components/bg-mark";
 import Task from "./components/task";
 import Empty from "./components/empty";
@@ -8,9 +8,45 @@ import Header from "./components/header";
 import Tip from "./components/Tip";
 import Legend from "./components/legend";
 
-import { STATE_MAP } from './const'
-
-const Gant = ({
+import { STATE_MAP } from "./const";
+export interface DataType {
+  title: string;
+  id: string | number;
+  tasks: any;
+}
+type positionStatus = "left" | "right";
+export type modeStatus = "normal" | "compact";
+interface LegendAttrType {
+  show: boolean;
+  position: positionStatus;
+}
+interface OrderType {
+  well: boolean;
+  need: boolean;
+}
+export interface LegendType {
+  legend: LegendAttrType;
+  __STATEMAP__: any;
+}
+export interface GantPropsType {
+  data: DataType[];
+  year: number;
+  month: number;
+  legend: LegendAttrType;
+  stateMap: any;
+  mode: modeStatus;
+  order?: OrderType;
+  emptyText?: string;
+  tipText?: string;
+  onTaskClick?: ()=>void;
+  onTaskItemClick?: ()=>void;
+  showTodaylable?: boolean;
+  nowTimeLine?: {
+    show: boolean;
+    duration: number;
+  };
+}
+const Gant: FC<GantPropsType> = ({
   data,
   year,
   month,
@@ -24,7 +60,6 @@ const Gant = ({
   stateMap,
   mode,
   order,
-
 }) => {
   // 处理当前时间信息
   const day = useDateInfo(year, month);
@@ -34,8 +69,8 @@ const Gant = ({
   const __STATEMAP__ = useMemo(() => {
     return {
       ...STATE_MAP,
-      ...stateMap
-    }
+      ...stateMap,
+    };
   }, [stateMap]);
 
   return (
@@ -54,12 +89,15 @@ const Gant = ({
           <Task
             __STATEMAP__={__STATEMAP__}
             data={formatList}
-            day={day}
             __onTaskClick={onTaskClick}
             __onTaskItemClick={onTaskItemClick}
             mode={mode}
           />
-          <BgMark day={day} showTodaylable={showTodaylable} nowTimeLine={nowTimeLine}></BgMark>
+          <BgMark
+            day={day}
+            showTodaylable={showTodaylable}
+            nowTimeLine={nowTimeLine}
+          ></BgMark>
         </div>
         {!formatList?.length && <Empty emptyText={emptyText}></Empty>}
       </div>

@@ -9,15 +9,20 @@ const TaskItemSub = ({ list = [], taskStartTime, __onTaskItemClick }) => {
             className="sub-task-item"
             key={item.id}
             style={{
-              marginLeft: `${((item.startTime - taskStartTime) / 86400000) * 100}px`,
+              marginLeft: `${
+                ((item.startTime - taskStartTime) / 86400000) * 100
+              }px`,
               width: `${((item.endTime - item.startTime) / 86400000) * 100}px`,
             }}
             title={item.title}
             onClick={(e) => {
+              if (!__onTaskItemClick) return;
               e.stopPropagation();
-              __onTaskItemClick(item)
+              __onTaskItemClick(item);
             }}
-          >{item.title}</p>
+          >
+            {item.title}
+          </p>
         );
       })}
     </>
